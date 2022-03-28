@@ -1,4 +1,0 @@
-[submodule "commands-centreon/centreon-plugins"]
-	path = commands-centreon/centreon-plugins
-	url = https://github.com/centreon/centreon-plugins.git
-	branch = refs/tags/20220113
