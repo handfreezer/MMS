@@ -1,4 +1,4 @@
 [submodule "commands-centreon/centreon-plugins"]
 	path = commands-centreon/centreon-plugins
-	url = https://github.com/handfreezer/centreon-plugins
+	url = https://github.com/handfreezer/z_centreon-plugins
 	branch = master_handfreezer
