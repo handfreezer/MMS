@@ -1,0 +1,5 @@
+*.yaml
+__pycache__/
+.git
+.aws
+.env
