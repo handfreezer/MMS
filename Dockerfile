@@ -10,7 +10,11 @@ RUN apt install --no-install-recommends -y perl libsnmp-perl libxml-libxml-perl 
 
 RUN apt install --no-install-recommends -y libjson-xs-perl
 
+RUN apt install --no-install-recommends -y vim 
+
 COPY root/ /
+RUN echo "" >> /data-init/etc/icinga2/icinga2.conf \
+	&& echo 'include "/mms/mms.conf"' >> /data-init/etc/icinga2/icinga2.conf
 
 ENV CENTREON_PLUGINS_VERSION ${CENTREON_PLUGINS_VERSION}
 RUN cd /mms/scripts/centreon \
