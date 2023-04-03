@@ -1,7 +1,7 @@
 #!/bin/bash
 
 IMAGE_NAME=icinga2_with_mms
-IMAGE_TAG=latest
+IMAGE_TAG=$(date +%Y%m%d-%H%M%S)
 DIR_DATA="/tmp/test_data"
 
 docker container rm -f mms-master
@@ -13,6 +13,8 @@ docker image rm --force ${IMAGE_NAME}:${IMAGE_TAG}
 rm -rf "${DIR_DATA}"
 
 docker build -t ${IMAGE_NAME}:${IMAGE_TAG} . \
+	&& (docker image rm ${IMAGE_NAME}:latest || true) \
+	&& docker image tag ${IMAGE_NAME}:${IMAGE_TAG} ${IMAGE_NAME}:latest \
 	&& docker run -it \
 		--network icinga \
 		--name mms-master \
